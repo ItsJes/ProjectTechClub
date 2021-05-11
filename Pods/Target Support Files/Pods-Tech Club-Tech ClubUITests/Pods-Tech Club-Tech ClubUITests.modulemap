@@ -1,0 +1,6 @@
+framework module Pods_Tech_Club_Tech_ClubUITests {
+  umbrella header "Pods-Tech Club-Tech ClubUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

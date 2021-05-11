@@ -6,8 +6,16 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseStorage
+import SwiftKeychainWrapper
 
 class Home: UITableViewController {
+    
+    var userName: String!
+    var currentUserImageUrl: String!
+   // var currentUser
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +25,22 @@ class Home: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign out", style: UIBarButtonItem.Style.plain, target: self, action: #selector(signOut))
     }
 
     // MARK: - Table view data source
+    
+    func getUserdata(){
+        let uid = KeychainWrapper.standard.string(forKey: "uid")
+        Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value) { (snapshot) in
+            if let postDict = snapshot.value as? [String : AnyObject] {
+                self.currentUserImageUrl = postDict["userImg"] as? String
+                self.tableView.reloadData()
+                    }
+                }
+    }
+                                
+
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -28,9 +49,40 @@ class Home: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
-
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row == 0
+        {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "ShareSomethingCell") as? ShareSomethingCell{
+                if currentUserImageUrl != nil {
+                    cell.configCell(userImgUrl: currentUserImageUrl)
+                    cell.shareBtn.addTarget(self, action: #selector(toCreatePost), for: .touchUpInside)
+                }
+                return cell
+                
+            }
+        }
+        return UITableViewCell()
+    }
+    
+    @objc func signOut(_ sender: AnyObject){
+        KeychainWrapper.standard.removeObject(forKey: "uid")
+        do {
+            try Auth.auth().signOut()
+            
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+            
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func toCreatePost (_ sender: AnyObject) {
+            performSegue(withIdentifier: "toCreatePost", sender: nil)
+        }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
