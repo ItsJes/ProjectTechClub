@@ -19,6 +19,7 @@ class Home: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getUserdata()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,10 +33,10 @@ class Home: UITableViewController {
     
     func getUserdata(){
         let uid = KeychainWrapper.standard.string(forKey: "uid")
-        Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value) { (snapshot) in
-            if let postDict = snapshot.value as? [String : AnyObject] {
-                self.currentUserImageUrl = postDict["userImg"] as? String
-                self.tableView.reloadData()
+                Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value) { (snapshot) in
+                    if let postDict = snapshot.value as? [String : AnyObject] {
+                        self.userName = (postDict["username"] as! String)
+                        self.tableView.reloadData()
                     }
                 }
     }
@@ -78,6 +79,7 @@ class Home: UITableViewController {
             
         }
         dismiss(animated: true, completion: nil)
+       // performSegue(withIdentifier: "mainMenu", sender: nil)
     }
     
     @objc func toCreatePost (_ sender: AnyObject) {

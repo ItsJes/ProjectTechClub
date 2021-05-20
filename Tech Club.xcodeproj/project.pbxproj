@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		13A22D7D67F9D01A03254106 /* Pods_Tech_ClubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7445A932A563A54A6954451D /* Pods_Tech_ClubTests.framework */; };
 		BD3B2F981D097CB58FB0D37D /* Pods_Tech_Club.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6150AAFBBC7309C83051440 /* Pods_Tech_Club.framework */; };
+		C231B7992655AB2100924037 /* SignUpControllerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C231B7982655AB2100924037 /* SignUpControllerController.swift */; };
 		C250F0902610F3AF00EE19C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250F08F2610F3AF00EE19C5 /* AppDelegate.swift */; };
 		C250F0922610F3AF00EE19C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250F0912610F3AF00EE19C5 /* SceneDelegate.swift */; };
 		C250F0942610F3AF00EE19C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250F0932610F3AF00EE19C5 /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		7445A932A563A54A6954451D /* Pods_Tech_ClubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tech_ClubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C9EC4546A9B5368791670E /* Pods-Tech ClubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tech ClubTests.release.xcconfig"; path = "Target Support Files/Pods-Tech ClubTests/Pods-Tech ClubTests.release.xcconfig"; sourceTree = "<group>"; };
 		8AF9D7F18EF8BA86A855E614 /* Pods-Tech Club.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tech Club.release.xcconfig"; path = "Target Support Files/Pods-Tech Club/Pods-Tech Club.release.xcconfig"; sourceTree = "<group>"; };
+		C231B7982655AB2100924037 /* SignUpControllerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpControllerController.swift; sourceTree = "<group>"; };
 		C250F08C2610F3AF00EE19C5 /* Tech Club.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tech Club.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C250F08F2610F3AF00EE19C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C250F0912610F3AF00EE19C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				C250F0982610F3AF00EE19C5 /* Tech_Club.xcdatamodeld */,
 				C2CC407E2648C59900A83148 /* GoogleService-Info.plist */,
 				C2CA788A2649DFD100CB3F72 /* Home.swift */,
+				C231B7982655AB2100924037 /* SignUpControllerController.swift */,
 			);
 			path = "Tech Club";
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 			files = (
 				C250F0942610F3AF00EE19C5 /* ViewController.swift in Sources */,
 				C250F0902610F3AF00EE19C5 /* AppDelegate.swift in Sources */,
+				C231B7992655AB2100924037 /* SignUpControllerController.swift in Sources */,
 				C2CA78912649E86500CB3F72 /* ShareSomethingCell.swift in Sources */,
 				C2CA788B2649DFD100CB3F72 /* Home.swift in Sources */,
 				C250F0922610F3AF00EE19C5 /* SceneDelegate.swift in Sources */,
