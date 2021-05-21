@@ -19,7 +19,7 @@ class Home: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUserdata()
+        //getUserdata()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
